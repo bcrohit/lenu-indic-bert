@@ -1,0 +1,8 @@
+torch
+transformers
+scikit-learn
+huggingface_hub
+streamlit
+datasets
+lenu
+evaluate
