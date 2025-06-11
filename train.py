@@ -1,5 +1,5 @@
 """
-Script to train ai4bharath\indic-bert (bert-based) to classify LFC.
+Script to train ai4bharath\indic-bert (bert-based) to classify LFC using transformer trainer API.
 """
 
 import pandas as pd
@@ -72,7 +72,23 @@ def compute_metrics(eval_preds):
 
 model = AutoModelForSequenceClassification.from_pretrained(CHECKPOINT, num_labels=len(label_names))
 model.to(device)
-training_args = TrainingArguments("lenu", eval_strategy="epoch")
+
+training_args = TrainingArguments(
+        output_dir = 'lenu_IN',
+        eval_strategy = "epoch",
+        save_strategy = "epoch",
+        per_device_train_batch_size = 16,
+        per_device_eval_batch_size = 16,
+        learning_rate = 2e-4,
+        optim = "adamw_torch",
+        num_train_epochs = 2,
+        weight_decay = 0.01,
+        lr_scheduler_type = "linear",
+        run_name = "lenu_indicbert",
+        load_best_model_at_end = True,
+        metric_for_best_model = "accuracy",
+        report_to = "wandb"
+    )
 
 trainer = Trainer(
     model,
@@ -83,3 +99,5 @@ trainer = Trainer(
     processing_class=tokenizer,
     compute_metrics=compute_metrics,
 )
+
+trainer.train()
