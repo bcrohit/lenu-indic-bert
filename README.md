@@ -6,6 +6,15 @@ This project implements a transformer-based NLP model to classify the **Entity L
 
 To build and fine-tune a machine learning model that can automatically assign the correct ELF code to an entity name using only its textual features — specifically tailored for Indian legal entities.
 
+## Dependencies
+- python (>=3.8, <3.10)
+- [scikit-learn](https://scikit-learn.org/) - Provides Machine Learning functionality for token based modelling
+- [transformers](https://huggingface.co/docs/transformers/index) - Download and applying Neural Network Models
+- [pytorch](https://pytorch.org/) - Machine Learning Framework to train Neural Network Models
+- [pandas](https://pandas.pydata.org/) - For reading and handling data
+- [Typer](https://typer.tiangolo.com/) - Adds the command line interface
+- [requests](https://docs.python-requests.org/en/latest/) and [pydantic](https://pydantic-docs.helpmanual.io/) - For downloading LEI data from GLEIF's website
+
 ## Dataset
 
 - Source: [GLEIF Golden Copy](https://www.gleif.org/en/lei-data/gleif-golden-copy/download-the-concatenated-file)
@@ -42,4 +51,4 @@ After fine-tuning, the model achieved **Validation Accuracy** of *88%* compared 
    python get_data.py
    python preprocess.py
    python train.py
-   python hug.py
+   python hug.py  
