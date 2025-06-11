@@ -18,7 +18,7 @@ from transformers import (AutoModelForSequenceClassification, AutoTokenizer,
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 CHECKPOINT = "ai4bharat/indic-bert"
 
-data = pd.read_csv(r"data\jur_data+proc.csv")
+data = pd.read_csv(r"data\jur_data_proc.csv")
 
 
 # Prepare data for training
