@@ -3,12 +3,11 @@ Script to train model on Naive Bayes alogorith and use it as our baseline.
 """
 
 import pandas as pd
-from sklearn.model_selection import train_test_split
+from sklearn.externals import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
-from sklearn.externals import joblib
-
+from sklearn.model_selection import train_test_split
 
 data = pd.read_csv("data\\jur_data_proc.csv")
 

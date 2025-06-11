@@ -4,17 +4,12 @@ Saves the cleansed and jurisdiction data (IN hardcoded) in the data folder.
 """
 
 import os
-import pandas as pd
 from pathlib import Path
 
+import pandas as pd
 from lenu.data import DataRepo
-from lenu.data.lei import (
-    load_lei_cdf_data,
-    COL_LEGALNAME,
-    COL_JURISDICTION,
-    COL_ELF,
-    get_legal_jurisdiction,
-)
+from lenu.data.lei import (COL_ELF, COL_JURISDICTION, COL_LEGALNAME,
+                           get_legal_jurisdiction, load_lei_cdf_data)
 
 data_dir = Path("data")
 data_repo = DataRepo(data_dir)

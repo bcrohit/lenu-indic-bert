@@ -2,22 +2,14 @@
 Script to train ai4bharath\indic-bert (bert-based) to classify LFC using transformer trainer API.
 """
 
-import pandas as pd
-import numpy as np
-from tqdm.auto import tqdm
-from datasets import Dataset, DatasetDict, ClassLabel, Features, Value
-from torch.utils.data import DataLoader
-from transformers import TrainingArguments
-from transformers import Trainer
-
 import evaluate
+import numpy as np
+import pandas as pd
 import torch
-from torch.optim import AdamW
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-
-from transformers import DataCollatorWithPadding
-from transformers import get_scheduler
+from datasets import ClassLabel, Dataset, DatasetDict, Features, Value
 from sklearn.model_selection import train_test_split
+from transformers import (AutoModelForSequenceClassification, AutoTokenizer,
+                          DataCollatorWithPadding, Trainer, TrainingArguments)
 
 # Variables
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

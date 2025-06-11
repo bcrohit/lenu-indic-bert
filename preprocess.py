@@ -3,9 +3,10 @@ Performs basic data processing operations and creates a json mapping label names
 Presumes the extracted jurisdiction data is present in data folder with naming `jurisdiction_data.csv`
 """
 
+import json
 import os
 import re
-import json
+
 import numpy as np
 import pandas as pd
 
